@@ -28,7 +28,7 @@
         ?> 
 
             <form method="post">
-                <textarea id="mytextarea" name="mytextarea">Hello, World!</textarea>
+                <textarea id="mytextarea" name="mytextarea">Hello World!</textarea>
             </form>
 
         <?php
