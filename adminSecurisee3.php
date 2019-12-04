@@ -21,7 +21,7 @@ session_start ();
 <body>
     <header>
 
-        <?php include("menu.php"); ?>
+         <?php include("menu.php"); ?> 
 
     </header>
 
@@ -31,51 +31,18 @@ session_start ();
     <?php echo '<a href="./logout.php">Déconnection</a>';?><br>
 
     <h1>Espace administration</h1>
-
-    <?php
-    if (isset($_POST['motDePasse'])) {
-        $password = $_POST['motDePasse'];
-        $hash = '$2y$10$f.EfMXnD2tG/eLx9L1wK2eTEXOjj3406Or/bqWsFRnSLyhElJeo.e';
-   
-        if (password_verify($password, $hash)) {
-    ?>
-        <form name="form_text" action="" method="post">
-        <label for="titre">Titre :</label>
-            <input type="text" name="titre" id="titre" /><br><br>
-            <textarea id="mytextarea" name="contenu"></textarea>
-            <button type="submit" class="btn btn-primary mb-2">Soumettre</button>
-        </form>
-
-    <?php
-        } 
-        else {
-        echo '<p>Le mot de passe est invalide.</p>';
-        }
-    }
-        ?>  
-        <?php
-if (isset($_POST['form_text']))
- {       
-    // Connexion à la base de données
-try
-{
-	$bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
-}
-catch(Exception $e)
-{
-        die('Erreur : '.$e->getMessage());
-}
-
-        $titre = htmlspecialchars($_POST['titre']);
-		$contenu = htmlspecialchars($_POST['contenu']);
-    
-        $reqContenu = $bdd->prepare('INSERT INTO chapitres (titre, contenu) VALUES(?, ?)');
-        $reqContenu->execute(array(
-        'titre' => $titre,
-        'contenu' => $contenu   
-        )); 
-} 
-?> 	
+     <?php if (isset($_SESSION['role']) && $_SESSION['role'] == "admin"){}
+     else{
+         header('location: chapitres.php');
+     }
+     ?>
+            <form name="form_text" action="adminSecurisee_post" method="post">
+                <label for="titre">Titre :</label>
+                <input type="text" name="titre" id="titre" /><br><br>
+                <textarea id="mytextarea" name="contenu"></textarea>
+                <button type="submit" class="btn btn-primary mb-2">Soumettre</button>
+            </form>     
+	
     </section>
 
     <footer id="pied_de_page">
