@@ -1,3 +1,7 @@
+<?php
+session_start (); 
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -15,46 +19,22 @@
 <body>
 
     <header>
-        <nav id="menu" class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="jeanForteroche.php">Jean Forteroche</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Chapitres
-                          </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="chapitre1.php">Chapitre1</a>
-                            <a class="dropdown-item" href="chapitre2.php">Chapitre2</a>
-                            <a class="dropdown-item" href="chapitre3.php">Chapitre3</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="auteur.php">Auteur</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="espaceMembres.php">Espace Membres</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin.php">Administration</a>
-                    </li>
-                </ul>
-
-            </div>
-        </nav>
-
-
+    <?php include("menu.php"); ?>
+  
+       
     </header>
 
-    <section>
-        jeanForteroche
+    <section class="marge">
+    Membre connecté(e) :  
+    <?php  if (isset($_SESSION['pseudo'])){echo $_SESSION['pseudo'];}?> <br>
+    <?php echo '<a href="./logout.php">Déconnection</a>';?><br>
+       
+       <img id="image1" src="images/biblio_4.jpg" alt="grande bibliothèque" />
     </section>
+     
+  
 
 
-    <footer id="pied_de_page">
 
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

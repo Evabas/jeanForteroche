@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -17,11 +21,13 @@
     <header>
 
     <?php include("menu.php"); ?>
-
+       
     </header>
 
-    <section>
-chapitre3
+    <section class="marge">
+    <?php  if (isset($_SESSION['pseudo'])){echo $_SESSION['pseudo'];}?> <br>
+    <?php echo '<a href="./logout.php">Déconnection</a>';?><br>
+       chapitre3
     </section>
 
 

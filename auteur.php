@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -20,8 +23,12 @@
 
     </header>
 
-    <section>
-auteur
+    <section class="marge">
+Membre connecté(e) :  
+<?php  if (isset($_SESSION['pseudo'])){echo $_SESSION['pseudo'];}?> <br>
+<?php echo '<a href="./logout.php">Déconnection</a>';?><br>
+       Auteur
+        
     </section>
 
 

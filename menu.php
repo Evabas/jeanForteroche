@@ -1,30 +1,21 @@
-<nav id="menu" class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="jeanForteroche.php">Jean Forteroche</a>
+<nav id="menu" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="index.php">Jean Forteroche</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Chapitres
-                          </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="chapitre1.php">Chapitre1</a>
-                            <a class="dropdown-item" href="chapitre2.php">Chapitre2</a>
-                            <a class="dropdown-item" href="chapitre3.php">Chapitre3</a>
-                        </div>
+                <li class="nav-item">
+                        <a class="nav-link" href="chapitres.php">Chapitres</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="auteur.php">Auteur</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="espaceMembres.php">Espace Membres</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin.php">Administration</a>
+                        <a class="nav-link" href="espaceMembres.php">Connexion</a>
                     </li>
                 </ul>
-        
+    
             </div>
         </nav>
+          
