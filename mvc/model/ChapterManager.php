@@ -29,4 +29,23 @@ class ChapterManager extends Manager
         
         return $req;
     }
+    public function suppressChapter($chapterId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM chapitres WHERE id=?');
+        $req->execute(array($chapterId)); 
+        $supprChapter = $req->fetch();
+
+        return $supprChapter;
+    }
+
+    public function updateChapter($chapterId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE chapitres SET contenu = "ok" WHERE id = 49');
+        $req->execute(array($chapterId)); 
+        $updateChapter= $req->fetch();
+
+        return $updateChapter ;
+    }
 }
