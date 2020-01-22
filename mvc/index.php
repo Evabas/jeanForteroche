@@ -14,6 +14,23 @@ try {
                 throw new Exception('Erreur : aucun identifiant de chapitre envoyé');
             }
         }
+        elseif ($_GET['action'] == 'editChapter') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                editChapter();
+            }
+        }
+        elseif ($_GET['action'] == 'modifyChapter') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+               modifyChapter();
+               header('location: index.php');
+            }
+        }
+        elseif ($_GET['action'] == 'removeChapter') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                removeChapter($_GET['id']);
+                header('location: index.php');
+            }
+        }
         elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['pseudo']) && !empty($_POST['commentaire'])) {
@@ -25,6 +42,12 @@ try {
             }
             else {
                 throw new Exception('Aucun identifiant de chapitre envoyé');
+            }
+        }
+        elseif ($_GET['action'] == 'notice') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                notice($_GET['id']);
+                header('location:view/frontend/adminView.php');
             }
         }
         elseif ($_GET['action'] == 'newChapter') {
@@ -65,11 +88,7 @@ try {
                 } 
             }
         }
-        // elseif ($_GET['action'] == 'edit') {
-        // }
-        // elseif ($_GET['action'] == 'suppr') {
-        // }
-
+     
         elseif ($_GET['action'] == 'member') {
             if (isset($_POST['pseudoconnect']) && isset($_POST['pwdconnect'])) {
                 $pseudoconnect = htmlspecialchars($_POST['pseudoconnect']);
@@ -90,7 +109,7 @@ try {
                             }
                             else 
                             {
-                                header("location: index.php");
+                                header("location: view/frontend/espaceMembresView.php");
                             }
                     }
                     else
