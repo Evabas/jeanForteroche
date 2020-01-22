@@ -26,6 +26,25 @@ function chapter()
     require('view/frontend/chapterView.php');
 }
 
+function editChapter()
+{
+    $chapterManager = new ChapterManager();
+
+    $chapter = $chapterManager->getChapter($_GET['id']);
+
+    require('view/frontend/editView.php');
+}
+
+function modifyChapter()
+{
+    $updateChapterManager = new ChapterManager();
+
+    $updateChapter = $updateChapterManager->updateChapter();
+
+    return $updateChapter;
+
+}
+
 function newChapter()
 {
     $addChapterManager = new ChapterManager();
@@ -33,6 +52,17 @@ function newChapter()
     $addChapter = $addChapterManager->addChapter();
 
     return $addChapter;
+}
+
+function removeChapter($chapterId)
+{
+    $removeChapterManager = new ChapterManager();
+
+    $removeChapter = $removeChapterManager->suppressChapter($chapterId);
+
+    return $removeChapter;
+
+    header('location : index.php');
 }
 
 function addComment($chapterId, $author, $comment)
@@ -48,16 +78,23 @@ function addComment($chapterId, $author, $comment)
         header('Location: index.php?action=chapter&id=' . $chapterId);
     }
 }
+function notice($commentId)
+{
+    $commentManager = new CommentManager();
+    $notice = $commentManager->noticeComment($commentId);
+    
+    return $notice;
+
+}
 
 function member()
 {
     $memberManager = new MemberManager();
 
-    $member= $memberManager->getMember();
+    $member = $memberManager->getMember();
     
     return $member;
 
-    header('location : esaceMembresView.php');
 }
 
 function newMember()
@@ -67,8 +104,6 @@ function newMember()
     $newMember= $newMemberManager->createMember();
     
     return $newMember;
-
-    header('location : esaceMembresView.php');
 }
 
 function pseudoExist()
@@ -80,10 +115,3 @@ function pseudoExist()
     return $pseudoExist;
 }
 
-// function moderate()
-// {
-//     $commentManager = new CommentManager();
-//     $comment = $commentManager->getComment($_GET['id']);
-
-//     return $comment;
-// }
