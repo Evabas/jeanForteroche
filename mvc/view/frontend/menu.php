@@ -6,7 +6,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                 <li class="nav-item">
-                        <a class="nav-link" href="/tests/projet4serveur//mvc/index.php">Chapitres</a>
+                        <a class="nav-link" href="/tests/projet4serveur//mvc/index.php?action=listChapters">Chapitres</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/tests/projet4serveur//mvc/view/frontend/auteur.php">Auteur</a>
