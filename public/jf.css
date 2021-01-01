@@ -1,0 +1,29 @@
+/* page index */
+
+#image1 {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+#accueil {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    z-index: 2;
+    color: white;
+    font-size: 2em;
+    font-family: fantasy;
+}
+
+.navbar-brand {
+    margin-left: 5%;
+}
+
+.navbar-nav {
+    margin-left: 50%;
+}
+
+.marge {
+    margin-top: 60px;
+}
